@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
-        return view('company/home', [
-            'title' => 'Company'
+        return view('dashboard', [
+            'title' => 'Dashboard'
         ]);
     }
 }

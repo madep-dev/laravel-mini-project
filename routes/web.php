@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', [LoginController::class, 'login']);
+
+Route::get('/', [DashboardController::class, 'index']);
+
+Route::get('/company', [CompanyController::class, 'index']);
+
+Route::get('/employees', [EmployeesController::class, 'index']);
