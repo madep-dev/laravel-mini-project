@@ -12,4 +12,11 @@ class EmployeesController extends Controller
             'title' => 'Employees'
         ]);
     }
+
+    public function create()
+    {
+        return view('employees/create', [
+            'title' => 'Add Employees'
+        ]);
+    }
 }

@@ -23,6 +23,6 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/company', [CompanyController::class, 'index']);
+Route::resource('company', CompanyController::class);
 
-Route::get('/employees', [EmployeesController::class, 'index']);
+Route::resource('employees', EmployeesController::class);
