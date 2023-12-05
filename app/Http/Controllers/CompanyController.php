@@ -20,7 +20,7 @@ class CompanyController extends Controller
         $companies = Company::all()->sortDesc();
 
         return view('company/index', [
-            'title' => 'Company',
+            'title' => 'Companies',
             'companies' => $companies
         ]);
     }
