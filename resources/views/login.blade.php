@@ -15,14 +15,15 @@
 </head>
 
 <body class="hold-transition login-page">
+    @include('sweetalert::alert')
     <div class="login-box">
         <div class="login-logo">
-            <p href="#">Sign In</p>
+            <p href="#">Log In</p>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body px-4 py-5 rounded">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Log in to start your session</p>
                 <form action="/login" method="post">
                     @csrf
                     <div class="input-group mb-3">
@@ -44,7 +45,7 @@
                     <div class="row">
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">
-                                Sign In
+                                Log In
                                 <i class="ri-login-box-line"></i>
                             </button>
                         </div>

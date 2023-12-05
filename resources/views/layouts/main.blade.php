@@ -12,6 +12,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
+    @include('sweetalert::alert')
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -67,7 +68,7 @@
                             <a href="/logout" class="nav-link">
                                 <i class="ri-logout-box-r-line"></i>
                                 <p>
-                                    Logout
+                                    Log Out
                                 </p>
                             </a>
                         </li>
