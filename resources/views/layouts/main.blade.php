@@ -41,7 +41,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="ri-home-2-line"></i>
                                 <p>
                                     Dashboard
@@ -49,7 +49,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/company" class="nav-link">
                                 <i class="ri-file-list-2-line"></i>
                                 <p>
                                     Company
@@ -57,7 +57,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/employees" class="nav-link">
                                 <i class="ri-file-text-line"></i>
                                 <p>
                                     Employee
@@ -65,12 +65,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/logout" class="nav-link">
-                                <i class="ri-logout-box-r-line"></i>
-                                <p>
-                                    Log Out
-                                </p>
-                            </a>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-block btn-info"><i class="ri-logout-box-r-line"></i> Log Out</button>
+                            </form>
                         </li>
                     </ul>
                 </nav>

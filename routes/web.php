@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::resource('company', CompanyController::class);
+Route::resource('company', CompanyController::class)->middleware('auth');
 
-Route::resource('employees', EmployeesController::class);
+Route::resource('employees', EmployeesController::class)->middleware('auth');
