@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
-Route::apiResource('/company', App\Http\Controllers\Api\CompanyController::class);
-Route::apiResource('/employees', App\Http\Controllers\Api\EmployeesController::class);
+Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
+});
+
+Route::apiResource('/company', App\Http\Controllers\Api\CompanyController::class)->middleware('auth:sanctum');
+Route::apiResource('/employees', App\Http\Controllers\Api\EmployeesController::class)->middleware('auth:sanctum');
