@@ -24,11 +24,23 @@
                                             @csrf
                                             <div class="form-group mb-3">
                                                 <label for="first_nm">First Name</label>
-                                                <input type="text" class="form-control " id="first_nm" name="first_nm" value={{ $employee->first_nm }}>
+                                                <input type="text" class="form-control @error('first_nm') is-invalid @enderror" id="first_nm" name="first_nm"
+                                                    value={{ $employee->first_nm }}>
+                                                @error('first_nm')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label for="last_nm">Last Name</label>
-                                                <input type="text" class="form-control " id="last_nm" name="last_nm" value={{ $employee->last_nm }}>
+                                                <input type="text" class="form-control @error('last_nm') is-invalid @enderror" id="last_nm" name="last_nm"
+                                                    value={{ $employee->last_nm }}>
+                                                @error('last_nm')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label>Company</label>

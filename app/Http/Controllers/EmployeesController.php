@@ -12,11 +12,11 @@ class EmployeesController extends Controller
 {
     public function index()
     {
+        $employees = Employees::all()->sortDesc();
+
         $title = 'Delete';
         $text = "Are you sure ?";
         confirmDelete($title, $text);
-
-        $employees = Employees::all()->sortDesc();
 
         return view('employees/index', [
             'title' => 'Employees',
@@ -34,17 +34,10 @@ class EmployeesController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'first_nm' => 'required',
             'last_nm' => 'required'
         ]);
-
-        if ($validator->fails()) {
-
-            Alert::error('Failed', 'Name is required');
-
-            return redirect()->back();
-        }
 
         Employees::create([
             'first_nm' => $request->first_nm,
@@ -70,17 +63,10 @@ class EmployeesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'first_nm' => 'required',
             'last_nm' => 'required'
         ]);
-
-        if ($validator->fails()) {
-
-            Alert::error('Failed', 'Name is required');
-
-            return redirect()->back();
-        }
 
         Employees::where('id', $id)->update([
             'first_nm' => $request->first_nm,

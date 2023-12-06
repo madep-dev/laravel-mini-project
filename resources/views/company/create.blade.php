@@ -23,15 +23,21 @@
                                             @csrf
                                             <div class="form-group mb-3">
                                                 <label for="name">Name</label>
-                                                <input type="text" class="form-control " id="name" name="name" placeholder="Company Name">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror " id="name" name="name"
+                                                    placeholder="Company Name">
+                                                @error('name')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label for="address">Address</label>
-                                                <input type="text" class="form-control " id="address" name="address" placeholder="Company Address">
+                                                <input type="text" class="form-control " id="address" name="address" placeholder="Company Address" value="{{ old('address') }}">
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label for="email">Email</label>
-                                                <input type="email" class="form-control " id="email" name="email" placeholder="Company Email">
+                                                <input type="email" class="form-control " id="email" name="email" placeholder="Company Email" value="{{ old('email') }}">
                                             </div>
                                             <div class="form-group text-right">
                                                 <a href="/company" class="btn btn-outline-secondary mr-3"><i class="ri-close-line"></i> Cancel</a>

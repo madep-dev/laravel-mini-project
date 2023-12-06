@@ -12,12 +12,11 @@ class CompanyController extends Controller
 {
     public function index()
     {
+        $companies = Company::all()->sortDesc();
 
         $title = 'Delete';
         $text = "Are you sure ?";
         confirmDelete($title, $text);
-
-        $companies = Company::all()->sortDesc();
 
         return view('company/index', [
             'title' => 'Companies',
@@ -34,16 +33,9 @@ class CompanyController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required'
         ]);
-
-        if ($validator->fails()) {
-
-            Alert::error('Failed', 'Name is required');
-
-            return redirect()->back();
-        }
 
         Company::create([
             'name' => $request->name,
@@ -66,16 +58,9 @@ class CompanyController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required'
         ]);
-
-        if ($validator->fails()) {
-
-            Alert::error('Failed', 'Name is required');
-
-            return redirect()->back();
-        }
 
         Company::where('id', $id)->update([
             'name' => $request->name,
